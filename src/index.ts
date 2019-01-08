@@ -1,18 +1,19 @@
-abstract class Greetable {
-  protected name: string;
+function decorator() {}
 
-  constructor(name: string) {
-    this.name = name;
-  }
-
+abstract class Greeter {
   abstract greet(): string;
-}
 
-class Person extends Greetable {
-  greet() {
-    return `Hello ${this.name}`;
+  @decorator
+  method() {
+    return "something";
   }
 }
 
-const person = new Person("Emily");
+class Person extends Greeter {
+  greet() {
+    return "Hello world";
+  }
+}
+
+const person = new Person();
 console.log(person.greet());
